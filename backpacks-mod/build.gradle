@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'net.neoforged.moddev' version '2.0.78'
+}
+
+version = '1.0.0'
+group = 'com.example.backpacks'
+
+base {
+    archives_name = 'backpacks'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = '21.1.65'
+    
+    parchment {
+        mappingsVersion = '2024.07.28'
+        minecraftVersion = '1.21'
+    }
+    
+    runs {
+        configureEach {
+            systemProperty('neoforge.enabledGameTestNamespaces', 'backpacks')
+            ideName = "NeoForge Run ${it.name.capitalize()}"
+        }
+        
+        client {
+            client()
+        }
+        
+        server {
+            server()
+        }
+    }
+    
+    mods {
+        backpacks {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/main/resources' }
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Нет зависимостей, как требуется
+}
