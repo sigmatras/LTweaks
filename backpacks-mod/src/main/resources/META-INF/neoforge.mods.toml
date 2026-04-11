@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "backpacks"
+version = "1.0.0"
+displayName = "Backpacks Mod"
+authors = "YourName"
+description = '''
+Мод добавляет сумки с 9 слотами инвентаря.
+Сумка надевается через клавишу и не занимает слот брони.
+Замедление от заполнения слотов 5-9 и под водой.
+'''
+
+[[dependencies.backpacks]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.65,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.backpacks]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.22)"
+ordering = "NONE"
+side = "BOTH"
