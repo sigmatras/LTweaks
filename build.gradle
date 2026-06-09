@@ -1,0 +1,42 @@
+plugins {
+    id 'net.neoforged.moddev' version '1.0.21'
+}
+
+version = mod_version
+group = mod_group_id
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+neoForge {
+    version = project.neo_version
+
+    accessTransformers = files('src/main/resources/META-INF/accesstransformer.cfg')
+
+    runs {
+        client {
+            client()
+        }
+    }
+
+    mods {
+        ltweaks {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+configurations {
+    annotationProcessor.extendsFrom(implementation)
+}
+
+repositories {
+    mavenLocal()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
